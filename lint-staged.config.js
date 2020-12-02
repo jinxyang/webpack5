@@ -1,3 +1,3 @@
 module.exports = {
-  'src/**/*.js?(x)': ['npm run lint', 'npm run format', 'git add'],
+  'src/**/*.js?(x)': ['npm run lint', 'npm run format'],
 }
