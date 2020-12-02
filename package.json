@@ -4,7 +4,7 @@
   "description": "React && Webpack",
   "private": "true",
   "scripts": {
-    "start": "node ./server.js",
+    "start": "node --trace-deprecation ./server.js",
     "lint": "eslint src --ext .js,.jsx",
     "format:script": "prettier src --write",
     "format:style": "stylelint src --fix",
@@ -30,6 +30,8 @@
     "@babel/core": "^7.12.8",
     "@babel/preset-env": "^7.12.7",
     "@babel/preset-react": "^7.12.7",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.1",

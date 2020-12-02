@@ -52,4 +52,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new ReactRefreshWebpackPlugin(),
   ],
+  infrastructureLogging: {
+    level: 'none',
+  },
 }
