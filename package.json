@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node ./scripts/server.js",
     "lint": "eslint src --ext .js,.jsx",
-    "format:script": "prettier src --write",
-    "format:style": "stylelint src --fix",
+    "format:script": "prettier src --write --loglevel error",
+    "format:style": "stylelint src/**/*.{js,jsx,css} --fix",
     "format": "npm run format:script && npm run format:style",
     "build": "webpack"
   },
