@@ -47,12 +47,13 @@ http.interceptors.response.use(
   },
   (error) => {
     const errorMessage =
-      error.response?.data?.error?.message ||
-      error.response?.data?.message ||
-      defaultErrorMessage
-
+      error.response?.data?.message || error.message || defaultErrorMessage
     message.error(errorMessage)
-    return { data: {}, code: error.response.status, message: errorMessage }
+    return {
+      data: {},
+      code: error.response?.status || 1,
+      message: errorMessage,
+    }
   },
 )
 
