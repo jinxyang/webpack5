@@ -2,14 +2,14 @@
   "name": "@jinxyang/webpack5",
   "version": "0.1.0",
   "description": "React && Webpack",
-  "private": "true",
+  "private": true,
   "scripts": {
-    "start": "node ./scripts/server.js",
+    "start": "alan dev",
     "lint": "eslint src --ext .js,.jsx",
     "format:script": "prettier src --write --loglevel error",
     "format:style": "stylelint src/**/*.{js,jsx,css} --fix",
     "format": "npm run format:script && npm run format:style",
-    "build": "webpack"
+    "build": "alan build"
   },
   "repository": {
     "type": "git",
@@ -21,9 +21,14 @@
   },
   "homepage": "https://github.com/jinxyang/webpack5#readme",
   "dependencies": {
+    "@ant-design/colors": "^6.0.0",
+    "@ant-design/icons": "^4.6.2",
+    "antd": "^4.15.2",
+    "axios": "^0.21.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {

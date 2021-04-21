@@ -1,60 +1,30 @@
-import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import React, { useEffect } from 'react'
 
-const RedBorder = styled.div`
-  width: 100px;
-  margin-top: 0.1rem;
-  border: 1px solid red;
-  color: red;
+import { useAppContext } from 'contexts/app-context'
 
-  &:hover {
-    color: blue;
-  }
-`
+import Layout from './layout'
+import Sign from 'pages/Sign'
 
-const AppProps = {
-  allowDisabled: PropTypes.bool.isRequired,
+const components = {
+  0: Sign,
+  2: Layout,
 }
 
-const App = ({ allowDisabled }) => {
-  const [disabled, setDisabled] = useState(false)
-  const [text, setText] = useState('')
-
-  function handleClick() {
-    if (disabled) return
-    setText(text === 'React' ? 'Webpack' : 'React')
-  }
+const App = () => {
+  const {
+    state,
+    actions: { updateStatus },
+  } = useAppContext()
 
   useEffect(() => {
-    setText('React')
+    console.log('App rendered.')
+    if (!localStorage.getItem('token')) {
+      updateStatus(0)
+    }
   }, [])
 
-  useEffect(() => {
-    if (!text) return
-    console.log(`text changed to ${text}`)
-  }, [text])
-
-  return (
-    <RedBorder>
-      Hello1 {text}!
-      <br />
-      <button onClick={handleClick} disabled={disabled}>
-        Change Text
-      </button>
-      {allowDisabled ? (
-        <label>
-          disabled
-          <input
-            type="checkbox"
-            checked={disabled}
-            onChange={() => setDisabled(!disabled)}
-          />
-        </label>
-      ) : null}
-    </RedBorder>
-  )
+  const StatusComponent = components[state.status]
+  return <StatusComponent />
 }
-App.propTypes = AppProps
 
 export default App
